@@ -1,0 +1,21 @@
+name: Secure Secrets in CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  secrets-scan:
+    runs-on: self-hosted
+    steps:
+      - name: Scan for Hardcoded Secrets
+        uses: gitleaks/gitleaks-action@master
+        with:
+          args: >
+            detect
+            --source=.
+            --no-git
+            --redact
+            --report-format sarif
+            --report-path results.sarif
