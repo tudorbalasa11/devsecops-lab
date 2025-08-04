@@ -12,10 +12,4 @@ jobs:
       - name: Scan for Hardcoded Secrets
         uses: gitleaks/gitleaks-action@master
         with:
-          args: >
-            detect
-            --source=.
-            --no-git
-            --redact
-            --report-format sarif
-            --report-path results.sarif
+          args: detect --source=. --no-git --redact --report-format sarif --report-path results.sarif
