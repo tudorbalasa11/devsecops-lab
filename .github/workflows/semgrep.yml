@@ -27,6 +27,6 @@ jobs:
           semgrep scan --config=auto --sarif --output=semgrep-report.sarif
 
       - name: Upload SARIF report to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: semgrep-report.sarif
