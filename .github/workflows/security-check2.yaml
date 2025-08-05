@@ -9,6 +9,12 @@ jobs:
   secrets-scan:
     runs-on: self-hosted
     steps:
+
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Scan for Hardcoded Secrets
         uses: gitleaks/gitleaks-action@master
         with:
